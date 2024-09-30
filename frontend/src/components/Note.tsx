@@ -33,15 +33,15 @@ const Note = ({ note, className, onNoteClicked, onDeleteNoteClicked } : NoteProp
         <Card className={`${styles.noteCard} ${className}`}
         onClick={() => {onNoteClicked(note)}}>
             <Card.Body className={styles.cardBody}>
-                <Card.Title className={styleUtils.flexCenter}>
+                <Card.Title /*className={styleUtils.flexCenter}*/>
                     {title}
-                    <MdDelete className="text-muted ms-auto"
-                              onClick={(e) => {
-                                onDeleteNoteClicked(note);
-                                e.stopPropagation();
-                              }}>
+                    {/*<MdDelete className="text-muted ms-auto"*/}
+                    {/*          onClick={(e) => {*/}
+                    {/*             onDeleteNoteClicked(note);*/}
+                    {/*            e.stopPropagation();*/}
+                    {/*          }}>*/}
 
-                    </MdDelete>
+                    {/*</MdDelete>*/}
                 </Card.Title>
                 <Card.Text className={styles.cardText}>
                     {text}

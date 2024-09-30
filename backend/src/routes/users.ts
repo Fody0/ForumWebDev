@@ -8,7 +8,7 @@ router.post("/signup", UserController.signUp);
 
 router.post("/login", UserController.login);
 
-router.get("/", requiresAuth, UserController.getAuthenticatedUser)
+router.get("/", requiresAuth, UserController.getAuthenticatedUser);
 
 router.post("/logout", UserController.logout);
 

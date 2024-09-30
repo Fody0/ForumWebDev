@@ -4,6 +4,12 @@ const noteSchema = new Schema({
     userId: {type: mongoose.Schema.Types.ObjectId, required: true},
     title: { type: String, required: true },
     text: { type:String},
+    // blogs:[
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "Users"
+    //     }
+    // ]
 
 }, {timestamps: true});
 

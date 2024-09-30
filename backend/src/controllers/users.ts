@@ -6,9 +6,9 @@ import UserModel from "../models/user";
 
 export const getAuthenticatedUser: RequestHandler = async (req, res, next) => {
     try {
-        if(!req.session.userId){
-            throw createHttpError(401, "User not authenticated");
-        }
+        // if(!req.session.userId){
+        //     throw createHttpError(401, "User not authenticated");
+        // }
 
         const user = await UserModel.findById(req.session.userId).select("+email").exec();
 
@@ -49,9 +49,9 @@ export const signUp: RequestHandler<unknown, unknown, SignUpBody, unknown> = asy
         const passwordHashed = await bcrypt.hash(passwordRaw, 10);
 
         const newUser = await UserModel.create({
-           username: username,
-           email: email,
-           password: passwordHashed,
+            username: username,
+            email: email,
+            password: passwordHashed,
         });
 
         req.session.userId = newUser._id;

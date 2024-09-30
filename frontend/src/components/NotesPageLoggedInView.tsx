@@ -30,6 +30,7 @@ const NotesPageLoggedInView = () => {
                 setShowNotesLoadingError(false);
                 setNotesLoading(true);
                 const notes = await NotesApi.fetchNotes()
+                console.log(notes);
                 setNotes(notes);
             } catch (error) {
                 console.log(error);
@@ -52,7 +53,7 @@ const NotesPageLoggedInView = () => {
         }
     }
 
-    const notesGrid = <Row xs={1} md={2} lg={3} className={`g-4 ${styles.notesGrid}`}>
+    const notesGrid = <Row xs={1} className={`g-4 ${styles.notesGrid}`}>
         {notes.map(note => (
             <Col key={note._id}>
                 <Note note={note}
@@ -66,7 +67,9 @@ const NotesPageLoggedInView = () => {
     return (
         <>
             <Button className={`mb-4 ${styleUtils.blockCenter} ${styleUtils.flexCenter}`}
-                    onClick={() => setShowAddNoteDialog(true)}>
+                    onClick={() => {
+                        setShowAddNoteDialog(true)
+                    }}>
                 <FaPlus></FaPlus>
                 Add new note
             </Button>
@@ -86,7 +89,7 @@ const NotesPageLoggedInView = () => {
                 <AddEditNoteDialog
                     onDismiss={() => setShowAddNoteDialog(false)}
                     onNoteSaved={(newNote) => {
-                        setNotes([...notes, newNote]);
+                        setNotes([newNote, ...notes]);
                         setShowAddNoteDialog(false);
                     }}/>
             }
