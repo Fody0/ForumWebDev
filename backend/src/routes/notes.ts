@@ -1,5 +1,4 @@
 import express from "express";
-import app from "../app";
 import * as NotesControllers from "../controllers/notes"
 
 const router = express.Router();
